@@ -1,8 +1,10 @@
 from setuptools import setup, find_packages
+import os
 
 # Wczytywanie zależności z pliku requirements.txt
-with open('requirements.txt') as f:
+with open(os.path.join(os.path.dirname(__file__), 'requirements.txt')) as f:
     required = f.read().splitlines()
+
 
 setup(
     name='Mikrotik_Connector',
