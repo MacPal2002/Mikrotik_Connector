@@ -1,8 +1,9 @@
-/routeros_ssh_connector.*
+/Mikrotik_Connector.*
 /test.py
 /dist/
-/routeros_ssh_connector/__pycache__/
+/Mikrotik_Connector/__pycache__/
 /venv/
 /.vscode/
 setup.py
 MANIFEST
+.venv/
