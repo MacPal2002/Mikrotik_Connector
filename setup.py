@@ -1,10 +1,4 @@
 from setuptools import setup, find_packages
-import os
-
-# Wczytywanie zależności z pliku requirements.txt
-with open(os.path.join(os.path.dirname(__file__), 'requirements.txt')) as f:
-    required = f.read().splitlines()
-
 
 setup(
     name='Mikrotik_Connector',
@@ -16,7 +10,10 @@ setup(
     author_email='maciek.palenica@outlook.com',
     url='https://github.com/MacPal2002/Mikrotik_Connector',
     packages=find_packages(),
-    install_requires=required,
+      install_requires=[
+        'paramiko',
+        'packaging'
+    ],
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
