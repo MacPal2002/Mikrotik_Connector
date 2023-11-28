@@ -66,9 +66,11 @@ device.disconnect()
 
 These methods are used to retrieve information from the Mikrotik device.
 
-### `get_export_configuration(self)`
-
+### `get_export_configuration(self, sensitive=false)`
 Retrieve the device's configuration.
+
+- `sensitive`: Show sesitive TRUE|FALSE (optional).
+
 
 ### `get_identity(self)`
 
@@ -282,11 +284,12 @@ Downloads a backup file from the Mikrotik device.
 - `local_path`: Local path to save the downloaded file.
 - `filename`: Optional filename for the backup file.
 
-### `download_export(local_path)`
+### `download_export(local_path, sensitive=false)`
 
 Downloads the configuration export file from the Mikrotik device.
 
 - `local_path`: Local path to save the downloaded file.
+- `sensitive`: Show sesitive TRUE|FALSE (optional).
 
 ### `download_file(filename, local_path)`
 

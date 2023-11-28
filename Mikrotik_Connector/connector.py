@@ -64,11 +64,14 @@ class MikrotikDevice:
 
 
 
-    def get_export_configuration(self):
+    def get_export_configuration(self, sensitive=False):
         
         # Retrieve the device's configuration.
 
-        return self.send_command("/export terse")
+        if sensitive == False:
+            return self.send_command("/export terse")
+        elif sensitive == True:
+            return self.send_command("/export terse show-sensitive")
 
     def get_identity(self):
 
@@ -472,12 +475,17 @@ class MikrotikDevice:
             return self.download_file(filename, local_path)
         
 
-    def download_export(self, local_path):
+    def download_export(self, local_path, sensitive = False):
         
         print("*** INFO ***: This process may take some time to get info depending on how many config are in your device. Please wait...")
 
         self.last_export['name'] = "export_" + self.get_identity() + "_" + self.current_datetime + ".rsc"
-        self.send_command(f"/export terse file={self.last_export['name']}")
+
+        if sensitive == False:
+            self.send_command(f"/export terse file={self.last_export['name']}")
+        elif sensitive == True:
+            self.send_command(f"/export terse show-sensitive file={self.last_export['name']}")
+
         self.download_file(self.last_export['name'], local_path)
         self.send_command(f"/file remove {self.last_export['name']}")
         
