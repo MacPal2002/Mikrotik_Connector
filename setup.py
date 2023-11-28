@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='Mikrotik_Connector',
-    version='0.2',
+    version=0.2,
     description='A python-based SSH API for MikroTik devices',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
